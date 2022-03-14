@@ -50,7 +50,4 @@ iface = gr.Interface(
   description=description,
   allow_flagging=False,
   
-).launch(
-    auth=("test", "sarulab-test"),
-    share=True
-)
+).launch()
