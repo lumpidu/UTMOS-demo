@@ -39,6 +39,7 @@ def calc_mos(audio_path):
 
 
 description ="""
+The demo for UTMOS-strong w/o phoneme encoder.
 This model is trained on BVCC dataset.
 """ 
 
