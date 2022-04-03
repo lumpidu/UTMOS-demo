@@ -39,15 +39,14 @@ def calc_mos(audio_path):
 
 
 description ="""
-The demo for UTMOS-strong w/o phoneme encoder.
-This model is trained on BVCC dataset.
+MOS prediction demo using UTMOS-strong w/o phoneme encoder model, which is trained on the main track dataset.
 """ 
 
 iface = gr.Interface(
   fn=calc_mos,
   inputs=gr.inputs.Audio(type='filepath'),
   outputs="text",
-  title="UTMOS demo page",
+  title="UTMOS Demo",
   description=description,
   allow_flagging=False,
   
