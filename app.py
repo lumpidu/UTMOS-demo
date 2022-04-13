@@ -22,7 +22,7 @@ class ChangeSampleRate(nn.Module):
         output = round_down * (1. - indices.fmod(1.)).unsqueeze(0) + round_up * indices.fmod(1.).unsqueeze(0)
         return output
 
-model = lightning_module.BaselineLightningModule.load_from_checkpoint("epoch=3-step=7459.ckpt")
+model = lightning_module.BaselineLightningModule.load_from_checkpoint("epoch=3-step=7459.ckpt").eval()
 def calc_mos(audio_path):
     wav, sr = torchaudio.load(audio_path)
     osr = 16_000
@@ -34,7 +34,8 @@ def calc_mos(audio_path):
         'domains': torch.tensor([0]),
         'judge_id': torch.tensor([288])
     }
-    output = model(batch)
+    with torch.no_grad():
+        output = model(batch)
     return output.mean(dim=1).squeeze().detach().numpy()*2 + 3
 
 
