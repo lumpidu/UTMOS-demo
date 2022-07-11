@@ -42,6 +42,8 @@ def calc_mos(audio_path):
 description ="""
 MOS prediction demo using UTMOS-strong w/o phoneme encoder model, which is trained on the main track dataset.
 This demo only accepts .wav format. Best at 16 kHz sampling rate.
+
+Paper is available [here](https://arxiv.org/abs/2204.02152)
 """ 
 
 iface = gr.Interface(
