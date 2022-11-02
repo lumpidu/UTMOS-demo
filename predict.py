@@ -77,8 +77,9 @@ def main():
             pass
         for batch in tqdm.tqdm(loader):
             scores = scorer.score(batch.to(device))
-            with open(args.out_path, 'a') as fw: 
-                fw.write("\n".join([str(s) for s in scores]))
+            with open(args.out_path, 'a') as fw:
+                for s in scores:
+                    fw.write(str(s) + "\n")
 
 
 if __name__ == '__main__':
